@@ -7,11 +7,13 @@ generator client {
 
 datasource db {
   provider = "sqlite"
-  url      = env("DATABASE_URL")
+  url      = "file:./data/dev.db"
 }
 
 model Snippet {
   id    Int     @id @default(autoincrement())
   title String  @unique
   code  String
+  createdAt DateTime @default(now()) // Automatically sets the creation time
+  updatedAt DateTime @updatedAt     // Automatically updates the timestamp on record update
 }
