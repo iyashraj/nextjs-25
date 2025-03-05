@@ -24,7 +24,7 @@ export default async function Home() {
       <div className="flex flex-wrap gap-4 justify-start sm:justify-between w-full max-h-[70vh] overflow-y-auto">
         {snippets.length ? (
           snippets?.map((snippet, index) => (
-            <SnippetCard key={index} title={snippet?.title} date={snippet?.updatedAt}/>
+            <SnippetCard key={index} title={snippet?.title} date={snippet?.updatedAt} id={snippet?.id}/>
           ))
         ) : (
           <div className="pl-3 pr-1 text-lg"> - No code snippet found!</div>
