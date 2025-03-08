@@ -20,7 +20,7 @@ const SnippetEditor = ({ snippet }: { snippet: Snippet }) => {
       <form action={saveSnippetAction} className="mt-2 flex flex-col gap-3">
         <div className="flex justify-between"><span className="text-xl font-semibold text-gray-700">Edit your code : </span><Button variant={"outline"} className="w-[10%] self-end">Save</Button></div>
         <Editor
-          height="40vh"
+          height="70vh"
           defaultLanguage="javascript"
           defaultValue={code}
           theme="vs-dark"

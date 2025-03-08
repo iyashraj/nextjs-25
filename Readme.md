@@ -14,8 +14,14 @@ nextjs\next-routing> npm run dev
 We are using **Prisma** and **sqlite3** for storing data and we **@monaco-editor/react** for code editor.
 
 This repo is about store codes with edit and delete functionality. We are using dynamic routes and so many next.js core features like client and server pages with their importance. 
-
+#### Home page
 ![code_manager_home](image.png)
+#### Add code page
+![Add_code](image-1.png)
+#### Code detail page
+![view_code](image-2.png)
+#### Edit code page
+![edit_code](image-3.png)
 
 ## License
 
