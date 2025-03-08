@@ -1,33 +1,32 @@
+"use client";
+
+import Snippet from "@/components/snippet";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
-import { Textarea } from "@/components/ui/textarea";
-import { prisma } from "@/lib/prisma";
-import { redirect } from "next/navigation";
+import { createSnippet } from "@/actions";
+import { useState } from "react";
 
 const AddSnippetPage = () => {
-  async function createSnippet(formData: FormData) {
-    "use server"; // use server directive
-    const title = formData.get("title") as string;
-    const code = formData.get("code") as string;
+  const [snippet, setSnippet] = useState({
+    title: "",
+    code: "",
+  });
 
-    console.log(title, code);
+  const handleCodeChange = (val: string | undefined) => {
+    console.log(val, "from page");
+    setSnippet((prev) => ({
+      title: prev.title,
+      code: val ?? "",
+    }));
+  };
 
-    const createdSnippet = await prisma.snippet.create({
-      data: {
-        title,
-        code,
-      },
-    });
-
-    console.log(createdSnippet);
-    redirect("/");
-  }
+  const createSnippetAction = createSnippet.bind(null, snippet);
 
   return (
     <form
       className="border-amber-700 border-2 flex flex-col p-5 rounded-xl mt-5 gap-6"
-      action={createSnippet}
+      action={createSnippetAction}
     >
       <div className="gap-2 flex flex-col">
         <Label>Title</Label>
@@ -37,15 +36,14 @@ const AddSnippetPage = () => {
           type="text"
           name="title"
           id="title"
+          onChange={(e) =>
+            setSnippet((prev) => ({ ...prev, [e.target.name]: e.target.value }))
+          }
         />
       </div>
       <div className="gap-2 flex flex-col">
         <Label>Code</Label>
-        <Textarea
-          name="code"
-          id="code"
-          className="focus-visible:border-ring focus-visible:ring-ring/50 focus-visible:ring-[1px] aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 aria-invalid:border-destructive outline-none"
-        />
+        <Snippet handleCodeChange={handleCodeChange} />
       </div>
       <Button
         type="submit"

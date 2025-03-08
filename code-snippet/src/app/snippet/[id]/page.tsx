@@ -1,6 +1,7 @@
 import { Button } from "@/components/ui/button";
 import { prisma } from "@/lib/prisma";
 import Link from "next/link";
+import { deleteSnippet } from "@/actions";
 
 const SnippetDetailsPage = async ({
   params,
@@ -19,6 +20,9 @@ const SnippetDetailsPage = async ({
         Snippet Not Found!
       </div>
     );
+
+  const deleteSnippetAction = deleteSnippet.bind(null, snippetById.id);
+
   console.log(snippetById);
   return (
     <div className="flex flex-col gap-3">
@@ -27,13 +31,19 @@ const SnippetDetailsPage = async ({
           {snippetById?.title}
         </h1>
         <div className="flex gap-2">
-          <Link href={`${snippetById.id}/edit`}><Button variant={"outline"}>Edit</Button></Link>
-          <Button
-            variant={"outline"}
-            className="bg-red-600 text-slate-100 border-red-600 border-2"
-          >
-            Delete
-          </Button>
+          <Link href={`${snippetById.id}/edit`}>
+            <Button variant={"outline"} className="cursor-pointer">
+              Edit
+            </Button>
+          </Link>
+          <form action={deleteSnippetAction}>
+            <Button
+              variant={"outline"}
+              className="bg-red-600 text-slate-100 border-red-600 border-2 cursor-pointer"
+            >
+              Delete
+            </Button>
+          </form>
         </div>
       </div>
       <pre className="p-3 bg-gray-200 rounded border-gray-200">
