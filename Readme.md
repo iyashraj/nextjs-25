@@ -19,13 +19,13 @@ This repo is about store codes with edit and delete functionality. We are using 
 nextjs\code-snippet> npm run dev
 ```
 #### Home page
-![code_manager_home](image.png)
+![code_manager_home](assets/image.png)
 #### Add code page
-![Add_code](image-1.png)
+![Add_code](assets/image-1.png)
 #### Code detail page
-![view_code](image-2.png)
+![view_code](assets/image-2.png)
 #### Edit code page
-![edit_code](image-3.png)
+![edit_code](assets/image-3.png)
 
 ## Author
 #### Yashraj Thakur
