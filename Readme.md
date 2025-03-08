@@ -23,6 +23,9 @@ This repo is about store codes with edit and delete functionality. We are using 
 #### Edit code page
 ![edit_code](image-3.png)
 
-## License
-
-[MIT](https://choosealicense.com/licenses/mit/)
+## Author
+#### Yashraj Thakur
+[LinkedIn](https://www.linkedin.com/in/yash-raj-06710020a/)
+[Leetcode](https://leetcode.com/u/iyashraj/)
+[Intagram](https://instagram.com/yashdotraj/)
+[Twitter](https://x.com/singlethreaddev/)
